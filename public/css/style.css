@@ -129,7 +129,7 @@ ul > li.heading {
 
 ul > li.item {
     font-size: 13px;
-    line-height: 24px;
+    line-height: 30px;
 }
 
 #about-container {
@@ -174,4 +174,12 @@ ul > li.item {
     #about-container > div {
         text-align: center;
     }
+}
+
+#page-content ul:not(.browser-default) {
+    margin-top: 5px;
+}
+
+#page-content a:hover {
+    color: #69b8df;
 }
