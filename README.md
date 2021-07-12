@@ -3,6 +3,13 @@
 An *all-in-one* Django web application which implements a portfolio
 for [Kevin Morris](https://github.com/kevr).
 
+## Install Dependencies
+
+All dependencies required for this application are contained
+in [requirements.txt](requirements.txt):
+
+    $ pip install -I -r requirements.txt
+
 ## Configuration
 
 This application uses the `postgresql` Django backend for
