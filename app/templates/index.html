@@ -1,5 +1,73 @@
 {% extends "partials/layout.html" %}
+{% load app_extras %}
 
 {% block pageContent %}
-    <p>Homepage!</p>
+    <div id="about-container" class="responsive d-flex flex-row">
+        <div class="responsive">
+            <img class="profile" src="/static/img/kevr.jpg"
+                                 alt="Kevin Morris">
+        </div>
+        <div class="responsive flex vertical-middle">
+            <p id="intro">{{ person.about }}</p>
+        </div>
+    </div>
+
+    <div class="spacer-50"></div>
+
+    <div class="row">
+        <div class="section col s12 m6">
+            <h5 class="text-center">Projects</h5>
+            <p class="text-justify">
+                Kevin works on multiple open source projects and some of
+                his own personal. You can view a collection of his projects
+                by navigating to the <a href="/projects/">Projects</a>
+                menu item.
+            </p>
+        </div>
+
+        <div class="section col s12 m6">
+            <h5 class="text-center">Languages & Frameworks</h5>
+            <div class="row">
+                {% for language in person.language_set.all %}
+                    <div class="col s4 text-center">
+                        <ul>
+                            <li class="heading">{{ language.name }}</li>
+                            {% by_length language.framework_set.all 'name' as frameworks %}
+                            {% for framework in frameworks %}
+                                <li class="item">{{ framework.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="technology" class="section col s12 m6">
+            <h5 class="text-center">Technologies</h5>
+            <div class="row">
+                {% by_length person.technology_set.all 'name' as technologies %}
+                {% for tech in technologies %}
+                    <div class="col s4 text-center">
+                        {{ tech.name }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="protocols" class="section col s12 m6">
+            <h5 class="text-center">Known Protocols</h5>
+            <div class="row">
+                {% by_length person.protocol_set.all 'name' as protocols %}
+                {% for protocol in protocols %}
+                    <div class="col s4 text-center">
+                        <a href="{{ protocol.url }}" target="_blank">
+                            {{ protocol.name }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
 {% endblock %}

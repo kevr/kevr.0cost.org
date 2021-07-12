@@ -6,8 +6,12 @@
     </head>
 
     <body>
+        {% include "partials/navbar.html" %}
+
         <div id="page-content">
-            {% block pageContent %}{% endblock %}
+            <div class="container">
+                {% block pageContent %}{% endblock %}
+            </div>
         </div>
 
         {% include "partials/footer.html" %}

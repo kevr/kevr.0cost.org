@@ -7,7 +7,13 @@ html {
     min-height: 100%;
 }
 body {
+    display: flex;
+    flex-direction: column;
+
     height: 100%;
+
+    background-color: #333;
+    color: #fdfdfd;
 }
 
 /* Set everything to border-box box-sizing. */
@@ -26,4 +32,146 @@ input, select, button, a {
     -moz-transition: all 0.1s ease-in-out;
     -o-transition: all 0.1s ease-in-out;
     -ms-transition: all 0.1s ease-in-out;
+}
+
+#page-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px 2.5%;
+}
+
+body > .nav-menu {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.0);
+
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+}
+
+.nav-center ul {
+    text-align: center;
+}
+
+.nav-center ul li {
+    display: inline;
+    float: none;
+}
+
+.nav-center ul li a {
+    display: inline-block;
+}
+
+/* Flexbox classes. */
+.flex {
+    flex: 1 1 auto;
+}
+.d-flex {
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-row {
+    flex-direction: row;
+}
+
+/* Specific profile image sizes and style. */
+img.profile {
+    width: 240px;
+    border-radius: 50%;
+}
+
+
+@media screen and (min-width: 880px) {
+    img.profile {
+        margin-right: 30px;
+    }
+}
+
+.paragraph-image-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 40px;
+}
+
+p {
+    text-align: justify;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Text position classes. */
+.text-center {
+    text-align: center;
+}
+.text-justify {
+    text-align: justify;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+ul > li.heading {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+ul > li.item {
+    font-size: 13px;
+    line-height: 24px;
+}
+
+#about-container {
+    height: 240px;
+    line-height: 240px;
+}
+
+#intro {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.vertical-middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.spacer-50 {
+    height: 50px;
+}
+
+#protocols > .row > .col,
+#technology > .row > .col {
+    line-height: 30px;
+}
+
+@media screen and (max-width: 880px) {
+    .responsive {
+        display: block !important;
+        flex-direction: row !important;
+        flex: none !important;
+        line-height: 24px;
+    }
+
+    #about-container {
+        height: auto !important;
+        margin-bottom: 0 !important;
+    }
+
+    #about-container > div {
+        text-align: center;
+    }
 }

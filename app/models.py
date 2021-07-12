@@ -27,6 +27,7 @@ class Project(models.Model):
     languages = models.ManyToManyField('Language', blank=True)
     frameworks = models.ManyToManyField('Framework', blank=True)
     technologies = models.ManyToManyField('Technology', blank=True)
+    protocols = models.ManyToManyField('Protocol', blank=True)
 
     def __str__(self):
         return self.name
@@ -35,6 +36,7 @@ class Project(models.Model):
 class Language(models.Model):
     class Meta:
         verbose_name_plural = "Languages"
+        ordering = ["name"]
 
     person = models.ForeignKey(Person, on_delete=models.DO_NOTHING)
     projects = models.ManyToManyField(
@@ -66,6 +68,20 @@ class Technology(models.Model):
     projects = models.ManyToManyField(
         Project, through="Project_technologies", blank=True)
     name = models.CharField(max_length=56, unique=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Protocol(models.Model):
+    class Meta:
+        verbose_name_plural = "Protocols"
+
+    person = models.ForeignKey(Person, on_delete=models.DO_NOTHING)
+    projects = models.ManyToManyField(
+        Project, through="Project_protocols", blank=True)
+    name = models.CharField(max_length=56, unique=True)
+    url = models.URLField()
 
     def __str__(self):
         return self.name

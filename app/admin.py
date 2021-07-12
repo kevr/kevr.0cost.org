@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from app.models import Framework, Language, Person, Project, Technology
+from app.models import (Framework, Language, Person, Project, Protocol,
+                        Technology)
 
 
 class PersonInline(admin.StackedInline):
@@ -31,6 +32,11 @@ class ProjectInline(admin.StackedInline):
     extra = 0
 
 
+class ProtocolProjectsInline(admin.TabularInline):
+    model = Protocol.projects.through
+    extra = 0
+
+
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     inlines = [ProjectInline]
@@ -54,10 +60,17 @@ class TechnologyAdmin(admin.ModelAdmin):
     exclude = ('projects',)
 
 
+@admin.register(Protocol)
+class ProtocolAdmin(admin.ModelAdmin):
+    inlines = [ProtocolProjectsInline]
+    exclude = ('projects',)
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     inlines = [
         LanguageProjectsInline,
         FrameworkProjectsInline,
-        TechnologyProjectsInline
+        TechnologyProjectsInline,
+        ProtocolProjectsInline
     ]
