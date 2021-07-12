@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "partials/header.html" %}
+        <title>{% block pageTitle %}{{ person.name }}{% endblock %}</title>
+    </head>
+
+    <body>
+        <div id="page-content">
+            {% block pageContent %}{% endblock %}
+        </div>
+    </body>
+</html>
