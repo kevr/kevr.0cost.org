@@ -1,0 +1,29 @@
+/* Setup some HTML container sizing details. */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    min-height: 100%;
+}
+body {
+    height: 100%;
+}
+
+/* Set everything to border-box box-sizing. */
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+/* Set transitions on all buttons and links. */
+input, select, button, a {
+    transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+}
