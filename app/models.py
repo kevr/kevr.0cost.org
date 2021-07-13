@@ -10,6 +10,7 @@ class Person(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=24, null=True, blank=True)
     about = models.TextField()
+    title = models.CharField(max_length=56, default="Software Engineer")
 
     def __str__(self):
         return self.name

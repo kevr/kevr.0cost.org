@@ -14,17 +14,9 @@
             <div class="flex"></div>
             <h2 id="name" class="marginless paddingless text-center">{{ person.name }}</h2>
             <div class="metadata text-center">
-                {% if person.phone %}
-                    <small>
-                        <span><a href="tel:{{ person.phone }}">{{ person.phone | phone_format }}</a></span>
-                        <span class="separator">•</span> 
-                        <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
-                    </small>
-                {% else %}
-                    <small>
-                        <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
-                    </small>
-                {% endif %}
+                <span class="text-red">{{ person.title }}</span>
+                <span class="separator">•</span> 
+                <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
             </div>
             <p id="intro" class="marginless text-medium">
                 {{ person.about }}
