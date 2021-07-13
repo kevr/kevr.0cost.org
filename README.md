@@ -57,6 +57,11 @@ in addition to:
 - Generating a truly secret `SECRET_KEY` for [portfolio/settings.py](portfolio/settings.py).
 - Setting `DEBUG` to `False` in [portfolio/settings.py](portfolio/settings.py).
 
+Before you run a server in production, you'll need to collect staticfiles
+for **nginx** to use.
+
+    $ python3 manage.py collectstatic
+
 ## License
 
 This project operates under the [MIT Public License](LICENSE).
