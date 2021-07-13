@@ -1,3 +1,10 @@
+:root {
+    --red: #ff7d7d;
+    --light-red: #ffa3a3;
+    --white: #fdfdfd;
+    --grey: #aaa;
+}
+
 /* Setup some HTML container sizing details. */
 html, body {
     margin: 0;
@@ -5,8 +12,11 @@ html, body {
 }
 html {
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 body {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
 
@@ -128,58 +138,135 @@ ul > li.heading {
 }
 
 ul > li.item {
-    font-size: 13px;
+    font-size: 13.5px;
     line-height: 30px;
 }
 
-#about-container {
-    height: 240px;
-    line-height: 240px;
+.text-medium {
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 #intro {
     display: inline-block;
-    vertical-align: middle;
-    font-size: 18px;
-    line-height: 24px;
 }
 
 .vertical-middle {
     display: inline-block;
     vertical-align: middle;
+    line-height: 1.5;
+    height: auto;
+}
+h2.vertical-middle {
+    display: block;
+}
+
+.vertical-middle-wrapper {
+    line-height: 240px;
+    height: 240px;
 }
 
 .spacer-50 {
-    height: 50px;
+    height: 100px;
 }
 
-#protocols > .row > .col,
-#technology > .row > .col {
+@media screen and (max-width: 600px) {
+    #page-content .spacer-50 {
+        height: 25px;
+    }
+}
+
+#protocols > .col-content > .row > .col,
+#technology > .col-content > .row > .col {
     line-height: 30px;
-}
-
-@media screen and (max-width: 880px) {
-    .responsive {
-        display: block !important;
-        flex-direction: row !important;
-        flex: none !important;
-        line-height: 24px;
-    }
-
-    #about-container {
-        height: auto !important;
-        margin-bottom: 0 !important;
-    }
-
-    #about-container > div {
-        text-align: center;
-    }
 }
 
 #page-content ul:not(.browser-default) {
     margin-top: 5px;
 }
 
+@media screen and (max-width: 880px) {
+    #about-container {
+        display: block;
+    }
+    #about-container > div:nth-child(1) {
+        text-align: center;
+    }
+    #about-container > div {
+        display: block;
+        flex: none;
+    }
+    #page-content .spacer-50 {
+        height: 20px !important;
+    }
+}
+
+nav ul li.active > a > span {
+    border-bottom: 1px solid var(--white);
+    padding-bottom: 5px;
+}
+
+nav ul li.active {
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+#page-content .marginless {
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.paddingless {
+    padding: 0;
+}
+
+#name {
+}
+
+#name, #page-content a {
+    color: var(--red);
+}
+
 #page-content a:hover {
-    color: #69b8df;
+    color: var(--light-red);
+}
+
+.metadata {
+    margin-bottom: 10px;
+}
+
+.metadata > small > span > a {
+    font-size: 13px !important;
+}
+
+.metadata .separator {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: var(--grey);
+}
+
+#page-content > .container > .row > .col:nth-child(1),
+#page-content > .container > .row > .col:nth-child(3)
+{
+    padding-right: 20px;
+}
+
+#page-content > .container > .row > .col:nth-child(2),
+#page-content > .container > .row > .col:nth-child(4)
+{
+    padding-left: 20px;
+}
+
+#page-content h5, #name {
+    font-family: "Gugi", cursive;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 1200px) {
+    #projects .col-content > p {
+        padding: 0 5%;
+    }
 }

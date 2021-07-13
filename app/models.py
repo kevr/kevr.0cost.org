@@ -8,6 +8,7 @@ class Person(models.Model):
     nick = models.CharField(max_length=56)
     name = models.CharField(max_length=128)
     email = models.EmailField()
+    phone = models.CharField(max_length=24, null=True, blank=True)
     about = models.TextField()
 
     def __str__(self):

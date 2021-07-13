@@ -1,73 +1,117 @@
 {% extends "partials/layout.html" %}
 {% load app_extras %}
 
+{% block pageTitle %}Kevin Morris - Home{% endblock %}
+
 {% block pageContent %}
-    <div id="about-container" class="responsive d-flex flex-row">
-        <div class="responsive">
+    <div class="flex"></div>
+    <div id="about-container" class="d-flex flex-row">
+        <div>
             <img class="profile" src="/static/img/kevr.jpg"
                                  alt="Kevin Morris">
         </div>
-        <div class="responsive flex vertical-middle">
-            <p id="intro">{{ person.about }}</p>
+        <div class="flex d-flex flex-col">
+            <div class="flex"></div>
+            <h2 id="name" class="marginless paddingless text-center">{{ person.name }}</h2>
+            <div class="metadata text-center">
+                {% if person.phone %}
+                    <small>
+                        <span><a href="tel:{{ person.phone }}">{{ person.phone | phone_format }}</a></span>
+                        <span class="separator">•</span> 
+                        <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
+                    </small>
+                {% else %}
+                    <small>
+                        <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
+                    </small>
+                {% endif %}
+            </div>
+            <p id="intro" class="marginless text-medium">
+                {{ person.about }}
+            </p>
+            <div class="flex"></div>
         </div>
     </div>
 
     <div class="spacer-50"></div>
 
-    <div class="row">
-        <div class="section col s12 m6">
-            <h5 class="text-center">Projects</h5>
-            <p class="text-justify">
-                Kevin works on multiple open source projects and some of
-                his own personal. You can view a collection of his projects
-                by navigating to the <a href="/projects/">Projects</a>
-                menu item.
-            </p>
-        </div>
-
-        <div class="section col s12 m6">
-            <h5 class="text-center">Languages & Frameworks</h5>
-            <div class="row">
-                {% for language in person.language_set.all %}
-                    <div class="col s4 text-center">
-                        <ul>
-                            <li class="heading">{{ language.name }}</li>
-                            {% by_length language.framework_set.all 'name' as frameworks %}
-                            {% for framework in frameworks %}
-                                <li class="item">{{ framework.name }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endfor %}
+    <div class="row marginless">
+        <div id="languages" class="section col s12 m12 l6">
+            <div class="col-content">
+                <h5 class="text-center">Languages</h5>
+                <div class="row">
+                    {% for language in person.language_set.all %}
+                        <div class="col s4 d-flex flex-row">
+                            <div class="flex"></div>
+                            <ul>
+                                <li class="heading">{{ language.name }}</li>
+                                {% by_length language.framework_set.all 'name' as frameworks %}
+                                {% for framework in frameworks %}
+                                    <li class="item">{{ framework.name }}</li>
+                                {% endfor %}
+                            </ul>
+                            <div class="flex"></div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
-        <div id="technology" class="section col s12 m6">
-            <h5 class="text-center">Technologies</h5>
-            <div class="row">
-                {% by_length person.technology_set.all 'name' as technologies %}
-                {% for tech in technologies %}
-                    <div class="col s4 text-center">
-                        {{ tech.name }}
-                    </div>
-                {% endfor %}
+        <div id="technology" class="section col s12 m12 l6">
+            <div class="col-content">
+                <h5 class="text-center">Technologies</h5>
+                <div class="row">
+                    {% for column in technologies %}
+                        <div class="col s4">
+                            <div class="d-flex flex-row">
+                                <div class="flex"></div>
+                                <ul>
+                                    {% for tech in column %}
+                                        <li>{{ tech.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="flex"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-
-        <div id="protocols" class="section col s12 m6">
-            <h5 class="text-center">Known Protocols</h5>
-            <div class="row">
-                {% by_length person.protocol_set.all 'name' as protocols %}
-                {% for protocol in protocols %}
-                    <div class="col s4 text-center">
-                        <a href="{{ protocol.url }}" target="_blank">
-                            {{ protocol.name }}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
     </div>
+    <div class="row marginless">
+        <div id="protocols" class="section col s12 m12 l6">
+            <div class="col-content">
+                <h5 class="text-center">Known Protocols</h5>
+                <div class="row">
+                    {% for column in protocols %}
+                        <div class="col s4">
+                            <div class="d-flex flex-row">
+                                <div class="flex"></div>
+                                <ul>
+                                    {% for proto in column %}
+                                        <li>{{ proto.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="flex"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="section col s12 m12 l6">
+            <div class="col-content">
+                <h5 class="text-center">Projects</h5>
+                <p class="text-justify text-medium">
+                    Kevin works on multiple open source projects and some of
+                    his own personal. You can view a collection of his projects
+                    by navigating to the <a href="/projects/">Projects</a>
+                    menu item.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="flex"></div>
 
 {% endblock %}

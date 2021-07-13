@@ -8,8 +8,8 @@
     <body>
         {% include "partials/navbar.html" %}
 
-        <div id="page-content">
-            <div class="container">
+        <div id="page-content" class="flex d-flex flex-col">
+            <div class="container flex d-flex flex-col">
                 {% block pageContent %}{% endblock %}
             </div>
         </div>
