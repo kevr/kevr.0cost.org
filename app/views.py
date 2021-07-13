@@ -56,4 +56,4 @@ def projects(request: HttpRequest) -> HttpResponse:
         return render(request, "404.html", status=404)
 
     context["person"] = person
-    return render(request, "index.html", context=context)
+    return render(request, "projects.html", context=context)
