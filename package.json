@@ -1,0 +1,13 @@
+{
+  "name": "kevr.0cost.org",
+  "version": "1.0.0",
+  "description": "Portfolio website for Kevin Morris",
+  "main": "index.js",
+  "repository": "git@gitlab.local.net:kevr/kevr.0cost.org.git",
+  "author": "Kevin Morris <kevr@0cost.org>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "eslint-plugin-react": "^7.24.0"
+  }
+}
