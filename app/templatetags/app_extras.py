@@ -22,3 +22,8 @@ def phone_format(phone: str) -> str:
     lhs = match.group(3)
     rhs = match.group(4)
     return f"{nation} ({area}) {lhs}-{rhs}"
+
+
+@register.filter("repl")
+def replace(string: str, search: str, repl: str) -> str:
+    return string.replace(search, repl)

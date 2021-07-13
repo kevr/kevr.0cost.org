@@ -56,4 +56,5 @@ def projects(request: HttpRequest) -> HttpResponse:
         return render(request, "404.html", status=404)
 
     context["person"] = person
+    context["projects"] = person.project_set.all()
     return render(request, "projects.html", context=context)

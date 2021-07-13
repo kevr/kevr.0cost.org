@@ -31,8 +31,20 @@ class Project(models.Model):
     technologies = models.ManyToManyField('Technology', blank=True)
     protocols = models.ManyToManyField('Protocol', blank=True)
 
+    open_source = models.BooleanField(default=True)
+
     def __str__(self):
         return self.name
+
+    def link_display(self):
+        if self.open_source:
+            return "Source Code"
+        return "Website"
+
+    def foss_status(self):
+        if self.open_source:
+            return "Open Source"
+        return "Proprietary"
 
 
 class Language(models.Model):

@@ -9,6 +9,7 @@
         {% include "partials/navbar.html" %}
 
         <div id="page-content" class="flex d-flex flex-col">
+            {% block beforeContent %}{% endblock %}
             <div class="container flex d-flex flex-col">
                 {% block pageContent %}{% endblock %}
             </div>

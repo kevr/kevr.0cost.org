@@ -3,5 +3,38 @@
 
 {% block pageTitle %}Kevin Morris - Projects{% endblock %}
 
+{% block beforeContent %}
+    <div id="contact-details">
+        <span class="text-red name">{{ person.name }}</span>
+        <span class="separator">•</span> 
+        <span><a href="mailto:{{ person.email }}">{{ person.email }}</a></span>
+        <br />
+        <div class="text-center">
+            <span class="text-red">{{ person.title }}</span>
+        </div>
+    </div>
+{% endblock %}
+
 {% block pageContent %}
+        <div class="grid">
+            {% for project in projects %}
+                <div class="grid-item">
+                    <div class="card lighten-3">
+                        <div class="card-content black-text">
+                            <span class="card-title">{{ project.name }}</span>
+                            <div class="card-foss"><small><span class="red-text">{{ project.foss_status }}</span></small></div>
+                            <p>{{ project.desc | safe }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ project.url }}" target="_blank">
+                                {{ project.link_display }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <script type="text/javascript" src="/static/js/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="/static/js/projects.js"></script>
 {% endblock %}

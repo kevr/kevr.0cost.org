@@ -1,8 +1,10 @@
 :root {
+    --dark-red: #ff1e1e;
     --red: #ff7d7d;
     --light-red: #ffa3a3;
     --white: #fdfdfd;
     --grey: #aaa;
+    --light-grey: #eee;
 }
 
 /* Setup some HTML container sizing details. */
@@ -25,7 +27,16 @@ body {
     background-color: #333;
     color: #fdfdfd;
 }
+body > .nav-menu {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.0);
 
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+}
 /* Set everything to border-box box-sizing. */
 * {
     box-sizing: border-box;
@@ -50,17 +61,6 @@ input, select, button, a {
     flex-direction: column;
 
     padding: 15px 2.5%;
-}
-
-body > .nav-menu {
-    display: inline-block;
-    background-color: rgba(0, 0, 0, 0.0);
-
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -o-box-shadow: none;
-    -ms-box-shadow: none;
 }
 
 .nav-center ul {
@@ -241,7 +241,7 @@ nav ul li.active {
     font-size: 13px !important;
 }
 
-.metadata .separator {
+.separator {
     margin-left: 10px;
     margin-right: 10px;
     color: var(--grey);
@@ -273,4 +273,77 @@ nav ul li.active {
 
 .text-red {
     color: var(--red);
+}
+
+#contact-details {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+#contact-details > .name {
+    font-size: 18px;
+}
+#contact-details {
+    text-align: right;
+}
+
+@media screen and (max-width: 660px) {
+    #contact-details {
+        position: relative;
+        text-align: center;
+    }
+    #contact-details > .name {
+        font-size: 22px !important;
+    }
+}
+
+.lighten-3 {
+    background-color: var(--light-grey);
+}
+
+@media screen and (max-width: 880px) {
+    #page-content .grid {
+        padding-top: 30px;
+    }
+
+    #page-content .grid > .grid-item {
+        width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 881px) and (max-width: 1200px) {
+    #page-content .grid > .grid-item {
+        width: 45% !important;
+    }
+}
+
+@media screen and (min-width: 1201px) {
+    #page-content .grid > .grid-item {
+        width: 30% !important;
+    }
+}
+
+#page-content .card.lighten-3 .card-action a {
+    color: var(--dark-red);
+}
+#page-content .card.lighten-3 .card-action a:hover {
+    color: var(--red);
+}
+
+#page-content .card.lighten-3 .card-title {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+#page-content .card .card-content {
+    padding-top: 10px;
+}
+
+#page-content .card .card-foss {
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.card code {
+    color: var(--dark-red);
 }
