@@ -1,3 +1,5 @@
+from typing import Dict, List
+
 from django.db.models.functions import Length
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
@@ -12,11 +14,11 @@ def get_person(nick: str) -> Person:
     return Person.objects.filter(nick=TARGET_NICK).first()
 
 
-def make_context(request: HttpRequest) -> dict[str, str]:
+def make_context(request: HttpRequest) -> Dict[str, str]:
     return {"path": request.path}
 
 
-def columns_to_rows(columns: list) -> list[list[str]]:
+def columns_to_rows(columns: list) -> List[List[str]]:
     """ Split an arbitrary number of columns into enough
     rows to hold three columns worth of data. """
     output = []
