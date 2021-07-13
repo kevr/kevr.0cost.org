@@ -347,3 +347,8 @@ nav ul li.active {
 .card code {
     color: var(--dark-red);
 }
+
+footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
