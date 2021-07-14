@@ -330,6 +330,13 @@ nav ul li.active {
     color: var(--red);
 }
 
+footer a {
+    color: var(--red);
+}
+footer a:hover {
+    color: var(--light-red);
+}
+
 #page-content .card.lighten-3 .card-title {
     font-weight: 500;
     margin-bottom: 0;
